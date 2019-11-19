@@ -1,0 +1,10 @@
+{
+  "name": "f5/bowling_bitlles",
+  "type": "project",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Src\\": "src/"
+    }
+  }
+}
