@@ -1,37 +1,49 @@
-
 <?php
+namespace SrcJugador;
+include '../vendor/autoload.php';
+use SrcRonda\Ronda;
 
-require 'Bitlles.php';
-require 'Ronda.php';
 
 class Jugador {
     public $jugador;
     public $TotalVader = 0;
     public $TotalYoda = 0;
-
-function partida(){
     
-    $this->jugador = getElementByName($jugadores);
+function setJugador($valor){
+    $this->jugador = $valor;
+}
 
-    if ($this->jugador == 'Vader'){
+function getJugador(){
+    return $this->jugador;
+}
+
+function jugarRonda(){
+    
+    $jugarUnaRonda= $this->getJugador();
+
+    
+    if ($partidaUno == 'vader'){
+        var_dump($partidaUno);
         $partida1 = new Ronda();
-        $partida1 = primeraTirada();
+        $ronda1 = $partida1->rondaUno();
+        $ronda2 = $partida1->rondaUno();
         $this->TotalVader += $partida1;
-        
-        $partida2 = new Ronda();
-        $partida2= segonaTirada();
-        $this->partidaTotalVader += $partida2;
+
+
     }
     
-    if ($jugador == 'Yoda'){
+    if ($partidaUno == 'yoda'){
         $partida1 = new Ronda();
-        $partida1 = primeraTirada();
+        $partida1->rondaUno();
         $this->TotalYoda += $partida1;
         
-        $partida2 = new Ronda();
-        $partida2= segonaTirada();
-        $this->TotalYoda += $partida2;
     }
-
 }
+}
+
+if (isset($_POST['jugadores'])){
+
+    $jugador = new Jugador();
+    $jugador->setJugador($_POST['jugadores']);
+    $jugador->partidaUno();
 }

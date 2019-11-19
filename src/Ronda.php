@@ -1,21 +1,19 @@
 <?php
-
-require 'Bitlles.php';
-
+namespace SrcRonda;
+use SrcBowling\Bitlles;
 class Ronda {
+    public $miPrimerTiro;
+    public $miSegundoTiro;
 
-    public $tirada;
-    public $tirada2;
+function ronda(){
+    $primeraRonda = new Bitlles();
 
-    function primeraTirada(){
-        $this->tirada;
-        return $this->tirada;
+    $this->miPrimerTiro = $primeraRonda->tirarBitlles();
+
+    if($this->miPrimerTriro<10){
+        $this->miSegundoTiro = $primeraRonda->tirarBitlles();
     }
-
-    function segonaTirada($tirada){
-        $this->tirada2= 10-$tirada;
-        $this->tirada = Math.random(0,$tirada2);
-        return $this->tirada;
-    }
+    return ['tiro1'=> $this->miPrimerTiro, 'tiro2'=> $this->miSegundoTiro];
+}
 
 }

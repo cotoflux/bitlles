@@ -1,16 +1,20 @@
 <?php
+namespace SrcBowling;
 
-namespace src\miRonda;
-
-require_once 'Ronda.php';
 
 
 class Bitlles{
 
-    public $tirada;
+    public $tirada=10;
     
-    function tirarBitlles(){
-        $this->tirada = rand(0,10);
-        return $this->tirada;
+    function setTirada($valor){
+        $this->tirada = $valor;
     }
+
+    function tirarBitlles(){
+        $valorTirada = rand(0,$this->tirada);
+        $this->setTirada($this->tirada - $valorTirada);
+        return $valorTirada;
+    }
+
 }
